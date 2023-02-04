@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red-color: #950101;
+  --green-color: #4e9f3d;
+}
+
+html {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 62.5%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(230, 231, 231, 0.493);
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  border: 1px solid rgb(46, 45, 45);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(110, 109, 109, 0.3);
+  background-color: #fff;
+}
+
+h2 {
+  border-bottom: 1px solid rgba(163, 163, 163, 0.616);
+  text-align: center;
+  padding-bottom: 10px;
+  color: #16213e;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-control div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label,
+small {
+  display: block;
+}
+
+small {
+  font-size: 1.5rem;
+  /* visibility: hidden; */
+}
+
+input {
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.527);
+}
+
+.error {
+  color: var(--red-color);
+}
+.success {
+  color: var(--green-color);
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(155, 185, 250, 0.527);
+}
+input.error:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--red-color);
+}
+
+button {
+  font-size: inherit;
+  margin-top: 10px;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(212, 235, 255);
+  box-shadow: 0 0 10px rgba(172, 172, 172, 0.349);
+  color: #16213e;
+}

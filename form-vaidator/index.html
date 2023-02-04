@@ -12,21 +12,37 @@
     <div class="container">
       <h2>Validator Form</h2>
       <form class="form-control" id="form-control">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username" />
-        <small>Error Message</small>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" />
+          <small>Error Message</small>
+        </div>
 
-        <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Enter your email" />
-        <small>Error Message</small>
+        <div>
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Enter your email" />
+          <small>Error Message</small>
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" />
-        <small>Error Message</small>
+        <div>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter you password"
+          />
+          <small>Error Message</small>
+        </div>
 
-        <label for="confirm-password">Confirm password</label>
-        <input type="password" id="confirm-password" />
-        <small>Error Message</small>
+        <div>
+          <label for="confirm-password">Confirm password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="Enter your password again"
+          />
+          <small>Error Message</small>
+        </div>
 
         <button type="submit" id="submit-btn">Submet</button>
       </form>
