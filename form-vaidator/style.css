@@ -28,31 +28,31 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  border: 1px solid rgb(46, 45, 45);
-  padding: 50px;
-  border-radius: 20px;
-  box-shadow: 0 5px 20px 10px rgba(110, 109, 109, 0.3);
+  gap: 5rem;
+  border: 0.1rem solid rgb(46, 45, 45);
+  padding: 5rem;
+  border-radius: 2rem;
+  box-shadow: 0 0.5rem 2rem 1rem rgba(110, 109, 109, 0.3);
   background-color: #fff;
 }
 
 h2 {
-  border-bottom: 1px solid rgba(163, 163, 163, 0.616);
+  border-bottom: 0.1rem solid rgba(163, 163, 163, 0.616);
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
   color: #16213e;
 }
 
 .form-control {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .form-control div {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 }
 
 label,
@@ -68,10 +68,10 @@ small {
 
 input {
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 1rem;
   font-size: 1.8rem;
   border: none;
-  box-shadow: 0 0 0 2px rgba(102, 102, 102, 0.527);
+  box-shadow: 0 0 0 0.2rem rgba(102, 102, 102, 0.527);
 }
 
 ::placeholder {
@@ -98,34 +98,45 @@ input {
 }
 input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(155, 185, 250, 0.527);
+  box-shadow: 0 0 0 0.2rem rgba(155, 185, 250, 0.527);
 }
 .input-error {
-  box-shadow: 0 0 0 2px var(--red-color);
+  box-shadow: 0 0 0 0.2rem var(--red-color);
 }
 .input-success {
-  box-shadow: 0 0 0 2px var(--green-color);
+  box-shadow: 0 0 0 0.2rem var(--green-color);
 }
 
 button {
   font-size: inherit;
-  margin-top: 10px;
+  margin-top: 1rem;
   padding: 1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 1rem;
   background-color: rgb(212, 235, 255);
-  box-shadow: 0 0 10px rgba(172, 172, 172, 0.349);
+  box-shadow: 0 0 1rem rgba(172, 172, 172, 0.349);
   cursor: pointer;
   color: #16213e;
 }
 
 button:hover {
-  box-shadow: 0 0 10px rgba(100, 100, 100, 0.349);
+  box-shadow: 0 0 1rem rgba(100, 100, 100, 0.349);
   background-color: rgb(136, 195, 243);
 }
 
 button:active {
-  box-shadow: 0 0 10px rgba(48, 48, 48, 0.349);
+  box-shadow: 0 0 1rem rgba(48, 48, 48, 0.349);
   background-color: rgb(30, 133, 218);
   color: #fff;
+}
+
+@media (max-width: 59em) {
+  html {
+    font-size: 51%;
+  }
+}
+@media (max-width: 19em) {
+  html {
+    font-size: 40%;
+  }
 }
