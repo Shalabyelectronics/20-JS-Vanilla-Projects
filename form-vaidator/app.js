@@ -69,7 +69,7 @@ const formObjectDataValidator = (
       inputSelector.classList.add("input-error");
       break;
     case "password confirm":
-      if (inputSelector.value === condition) {
+      if (inputSelector.value === condition && condition.length >= 8) {
         errorSelector.textContent = SUCCESS;
         errorSelector.classList.add("success");
         inputSelector.classList.add("input-success");
