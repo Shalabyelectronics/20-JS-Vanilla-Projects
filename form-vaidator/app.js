@@ -39,28 +39,11 @@ const formObjectDataValidator = (
         inputSelector.classList.add("input-error");
         return;
       }
-      console.log("username here");
       errorSelector.textContent = SUCCESS;
       errorSelector.classList.add("success");
       inputSelector.classList.add("input-success");
       break;
     case "email":
-      console.log("start Email Validator Process");
-      console.log("Before condition", condition.test(inputSelector.value));
-      console.log(
-        "Before condition with not",
-        !condition.test(inputSelector.value)
-      );
-      console.log(
-        "input value ",
-        !inputSelector.value,
-        "condition pattern ",
-        !condition.test(inputSelector.value)
-      );
-      console.log(
-        "all condition",
-        !condition.test(inputSelector.value) && !inputSelector.value
-      );
       if (inputSelector.value) {
         if (condition.test(inputSelector.value)) {
           errorSelector.textContent = SUCCESS;
@@ -117,13 +100,6 @@ const userNameValidator = () => {
 };
 
 const emailValidator = () => {
-  // console.log(emailInput);
-  // console.log(emailInput.value);
-  // console.log(emailInputError);
-  // console.log(EMAIL_PATTERN);
-  // console.log(EMAIL_PATTERN.test("fdfd@fdfdf.com"));
-  // console.log(EMAIL_PATTERN.test(""));
-
   formObjectDataValidator(
     "email",
     emailInput,
