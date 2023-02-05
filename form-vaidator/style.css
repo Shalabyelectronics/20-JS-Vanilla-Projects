@@ -137,9 +137,15 @@ button:active {
   html {
     font-size: 51%;
   }
+  .container {
+    width: 40rem;
+  }
 }
 @media (max-width: 19em) {
   html {
     font-size: 40%;
+  }
+  .container {
+    width: 35rem;
   }
 }
