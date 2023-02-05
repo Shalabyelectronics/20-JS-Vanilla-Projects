@@ -82,7 +82,11 @@ const formObjectDataValidator = (
       addErrorClasses(inputSelector, errorSelector, message);
       break;
     case "password confirm":
-      if (inputSelector.value === condition && condition.length >= 8) {
+      console.log(inputSelector.value, passwordInput.value.length);
+      if (
+        inputSelector.value === condition &&
+        passwordInput.value.length >= PASS_LENGTH
+      ) {
         addSuccessClasses(inputSelector, errorSelector);
         return;
       }
@@ -124,7 +128,6 @@ const passwordValidator = () => {
 };
 
 const passwordConfirmation = (password) => {
-  if (!password) return;
   formObjectDataValidator(
     "password confirm",
     confirmPassInput,
