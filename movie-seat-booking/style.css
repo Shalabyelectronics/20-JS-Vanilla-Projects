@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #242333;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+/* select-movie-box section*/
+.select-movie-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.select-movie {
+  font-size: 1.6rem;
+}
+
+.select-movie-field {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* seat-info-box section */
+.seat-info-box {
+  display: flex;
+  width: 85%;
+  justify-content: space-around;
+  background-color: #1c1c27;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+}
+.seat-info-box div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.seat-info-box div span {
+  color: rgb(94, 94, 94);
+}
+.seat {
+  background-color: #fff;
+  height: 1.2rem;
+  width: 1.5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: all 0.3s;
+}
+.pointer-seat {
+  cursor: pointer;
+}
+.seat-info-box div .seat:hover {
+  cursor: auto;
+  transform: scale(1);
+}
+.seat:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.n-a-seat {
+  background-color: rgb(56, 55, 55);
+}
+.selected-seat {
+  background-color: rgb(132, 208, 238);
+  box-shadow: 0 0 3px rgba(132, 208, 238, 0.397);
+}
+.booked-seat {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.397);
+}
+
+.cenima-board-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 85%;
+}
+
+.cenima-screen {
+  width: 80%;
+  height: 100px;
+  background-color: #fff;
+  transform: rotateX(-45deg);
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.514);
+}
+.seats-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+}
+.left-column-seats,
+.center-column-seats,
+.right-column-seats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.seats-box .row {
+  display: flex;
+  gap: 6px;
+}
