@@ -24,6 +24,16 @@ const SUCCESS = "Success";
 
 // Validator Functions
 
+const removeSuccessClasses = (inputSelector, errorSelector) => {
+  if (
+    inputSelector.classList.contains("input-success") &&
+    errorSelector.classList.contains("success")
+  ) {
+    errorSelector.classList.remove("success");
+    inputSelector.classList.remove("input-success");
+  }
+};
+
 const formObjectDataValidator = (
   inputType,
   inputSelector,
@@ -33,15 +43,17 @@ const formObjectDataValidator = (
 ) => {
   switch (inputType) {
     case "username":
-      if (inputSelector.value.length < condition) {
-        errorSelector.textContent = message;
-        errorSelector.classList.add("error");
-        inputSelector.classList.add("input-error");
+      if (inputSelector.value.length > condition) {
+        errorSelector.textContent = SUCCESS;
+        errorSelector.classList.add("success");
+        inputSelector.classList.add("input-success");
         return;
       }
-      errorSelector.textContent = SUCCESS;
-      errorSelector.classList.add("success");
-      inputSelector.classList.add("input-success");
+      removeSuccessClasses(inputSelector, errorSelector);
+      errorSelector.textContent = message;
+      errorSelector.classList.add("error");
+      inputSelector.classList.add("input-error");
+
       break;
     case "email":
       if (inputSelector.value) {
@@ -53,6 +65,7 @@ const formObjectDataValidator = (
           return;
         }
       }
+      removeSuccessClasses(inputSelector, errorSelector);
       errorSelector.textContent = message;
       errorSelector.classList.add("error");
       inputSelector.classList.add("input-error");
@@ -64,6 +77,7 @@ const formObjectDataValidator = (
         inputSelector.classList.add("input-success");
         return;
       }
+      removeSuccessClasses(inputSelector, errorSelector);
       errorSelector.textContent = message;
       errorSelector.classList.add("error");
       inputSelector.classList.add("input-error");
@@ -75,13 +89,7 @@ const formObjectDataValidator = (
         inputSelector.classList.add("input-success");
         return;
       }
-      if (
-        inputSelector.classList.contains("input-success") &&
-        errorSelector.classList.contains("success")
-      ) {
-        errorSelector.classList.remove("success");
-        inputSelector.classList.remove("input-success");
-      }
+      removeSuccessClasses(inputSelector, errorSelector);
       errorSelector.textContent = message;
       errorSelector.classList.add("error");
       inputSelector.classList.add("input-error");
