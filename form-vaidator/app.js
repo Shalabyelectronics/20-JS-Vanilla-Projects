@@ -34,6 +34,18 @@ const removeSuccessClasses = (inputSelector, errorSelector) => {
   }
 };
 
+const addSuccessClasses = (inputSelector, errorSelector) => {
+  errorSelector.textContent = SUCCESS;
+  errorSelector.classList.add("success");
+  inputSelector.classList.add("input-success");
+};
+
+const addErrorClasses = (inputSelector, errorSelector, message) => {
+  errorSelector.textContent = message;
+  errorSelector.classList.add("error");
+  inputSelector.classList.add("input-error");
+};
+
 const formObjectDataValidator = (
   inputType,
   inputSelector,
@@ -44,55 +56,38 @@ const formObjectDataValidator = (
   switch (inputType) {
     case "username":
       if (inputSelector.value.length > condition) {
-        errorSelector.textContent = SUCCESS;
-        errorSelector.classList.add("success");
-        inputSelector.classList.add("input-success");
+        addSuccessClasses(inputSelector, errorSelector);
         return;
       }
       removeSuccessClasses(inputSelector, errorSelector);
-      errorSelector.textContent = message;
-      errorSelector.classList.add("error");
-      inputSelector.classList.add("input-error");
-
+      addErrorClasses(inputSelector, errorSelector, message);
       break;
     case "email":
       if (inputSelector.value) {
         if (condition.test(inputSelector.value)) {
-          errorSelector.textContent = SUCCESS;
-          errorSelector.classList.add("success");
-          inputSelector.classList.add("input-success");
+          addSuccessClasses(inputSelector, errorSelector);
 
           return;
         }
       }
       removeSuccessClasses(inputSelector, errorSelector);
-      errorSelector.textContent = message;
-      errorSelector.classList.add("error");
-      inputSelector.classList.add("input-error");
+      addErrorClasses(inputSelector, errorSelector, message);
       break;
     case "password":
       if (inputSelector.value.length >= condition) {
-        errorSelector.textContent = SUCCESS;
-        errorSelector.classList.add("success");
-        inputSelector.classList.add("input-success");
+        addSuccessClasses(inputSelector, errorSelector);
         return;
       }
       removeSuccessClasses(inputSelector, errorSelector);
-      errorSelector.textContent = message;
-      errorSelector.classList.add("error");
-      inputSelector.classList.add("input-error");
+      addErrorClasses(inputSelector, errorSelector, message);
       break;
     case "password confirm":
       if (inputSelector.value === condition && condition.length >= 8) {
-        errorSelector.textContent = SUCCESS;
-        errorSelector.classList.add("success");
-        inputSelector.classList.add("input-success");
+        addSuccessClasses(inputSelector, errorSelector);
         return;
       }
       removeSuccessClasses(inputSelector, errorSelector);
-      errorSelector.textContent = message;
-      errorSelector.classList.add("error");
-      inputSelector.classList.add("input-error");
+      addErrorClasses(inputSelector, errorSelector, message);
       break;
   }
 };
