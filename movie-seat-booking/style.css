@@ -65,7 +65,7 @@ body {
   color: rgb(94, 94, 94);
 }
 .seat {
-  background-color: #fff;
+  background-color: rgb(56, 55, 55);
   height: 1.2rem;
   width: 1.5rem;
   border-top-left-radius: 10px;
@@ -79,7 +79,7 @@ body {
   cursor: auto;
   transform: scale(1);
 }
-.seat:hover {
+.seat:not(.booked-seat):hover {
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -128,4 +128,9 @@ body {
 .seats-box .row {
   display: flex;
   gap: 6px;
+}
+
+.total-amount,
+.number-of-seats {
+  color: rgb(132, 208, 238);
 }
