@@ -134,3 +134,9 @@ body {
 .number-of-seats {
   color: rgb(132, 208, 238);
 }
+
+@media (max-width: 20em) {
+  html {
+    font-size: 50%;
+  }
+}
