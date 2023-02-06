@@ -1,5 +1,6 @@
 const selectField = document.getElementById("select-movie");
 const allSeats = document.querySelectorAll(".row .seat");
+const cenimaBoardBox = document.querySelector(".cenima-board-box");
 
 const numbersOfSeats = document.getElementsByClassName("number-of-seats")[0];
 
@@ -72,4 +73,7 @@ const addListenerToavailableSeats = () => {
 };
 
 selectField.addEventListener("change", getSelectedValue);
+cenimaBoardBox.addEventListener("click", (e) => {
+  console.log(e.target);
+});
 addListenerToavailableSeats();
