@@ -57,6 +57,14 @@ const clearAll = () => {
   }
 };
 
+const saveBookingData = () => {
+  const getAllSeat = document.querySelectorAll(".row .seat");
+  const getSelectedSeats = [...getAllSeat].map((seat) => {
+    return getAllSeat.indexOf(seat.classList.contains("selected-seat"));
+  });
+  console.log(getSelectedSeats);
+};
+
 const bookAseat = (seat) => {
   clearAll();
   if (!isSelectedMovie()) return;
@@ -74,6 +82,7 @@ const addListenerToavailableSeats = () => {
 
 selectField.addEventListener("change", getSelectedValue);
 cenimaBoardBox.addEventListener("click", (e) => {
-  console.log(e.target);
+  console.log(e.target.classList);
 });
 addListenerToavailableSeats();
+saveBookingData();
