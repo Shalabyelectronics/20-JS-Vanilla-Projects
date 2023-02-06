@@ -23,7 +23,7 @@ const updateNumOfSeats = (haveSelectedClass) => {
 };
 
 const updateTotalPrice = (movieTekitPrice) => {
-  totalPrice = seatsSelected * parseInt(movieTekitPrice);
+  totalPrice = seatsSelected * +movieTekitPrice;
   totalPriceForSeats.innerText = totalPrice;
 };
 
@@ -36,18 +36,31 @@ const getSelectedValue = () => {
 
 const isSelectedMovie = () => {
   const selectedArray = getSelectedValue();
-  if (!selectedArray[0]) {
+  if (selectedArray[0] == 0) {
     alert("Please Select a Movie!!!");
     return false;
   }
   return selectedArray;
 };
 
+const clearAll = () => {
+  if (getSelectedValue()[0] == 0) {
+    allSeats.forEach((checkSeat) => {
+      if (checkSeat.classList.contains("selected-seat")) {
+        checkSeat.classList.remove("selected-seat");
+      }
+    });
+    seatsSelected = 0;
+    numbersOfSeats.innerText = seatsSelected;
+    updateTotalPrice(0);
+  }
+};
+
 const bookAseat = (seat) => {
+  clearAll();
   if (!isSelectedMovie()) return;
   seat.classList.toggle("selected-seat");
   updateNumOfSeats(seat.classList.contains("selected-seat"));
-  console.log(isSelectedMovie());
   updateTotalPrice(isSelectedMovie()[0]);
 };
 const addListenerToavailableSeats = () => {
