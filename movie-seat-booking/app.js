@@ -6,6 +6,8 @@ const numbersOfSeats = document.getElementsByClassName("number-of-seats")[0];
 
 const totalPriceForSeats = document.querySelector(".total-amount");
 
+const selectMovieError = document.querySelector(".select-movie-error");
+
 let seatsSelected = 0;
 
 let totalPrice = 0;
@@ -46,7 +48,7 @@ const updateMovieSelected = (movieValue) => {
 const isSelectedMovie = () => {
   const selectedArray = getSelectedValue();
   if (selectedArray[0] == 0) {
-    alert("Please Select a Movie!!!");
+    selectMovieError.classList.toggle("show-error");
     return false;
   }
   return selectedArray;
@@ -82,6 +84,7 @@ const updateSelectedSeats = () => {
 const bookAseat = (seat) => {
   clearAll();
   if (!isSelectedMovie()) return;
+  selectMovieError.classList.remove("show-error");
   seat.classList.toggle("selected-seat");
   updateNumOfSeats(seat.classList.contains("selected-seat"));
   updateTotalPrice(isSelectedMovie()[0]);
