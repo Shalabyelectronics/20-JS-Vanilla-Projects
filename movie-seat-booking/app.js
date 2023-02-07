@@ -39,6 +39,10 @@ const getSelectedValue = () => {
   return [valueSelected, textSelected];
 };
 
+const updateMovieSelected = (movieValue) => {
+  console.log((selectField.value = movieValue));
+};
+
 const isSelectedMovie = () => {
   const selectedArray = getSelectedValue();
   if (selectedArray[0] == 0) {
@@ -72,7 +76,6 @@ const updateSelectedSeats = () => {
     "selectedSeatsIndex",
     JSON.stringify(selectedSeatsIndex)
   );
-  console.log(selectedSeatsIndex);
   return selectedSeatsIndex;
 };
 
@@ -98,14 +101,17 @@ const populateUi = () => {
   );
 
   const movieData = JSON.parse(localStorage.getItem("movieData"));
+
   if (selectedSeatsIndex != null && selectedSeatsIndex.length > 0) {
     selectedSeatsIndex.forEach((index) => {
       if (selectedSeatsIndex.indexOf(index) > -1) {
         allSeats[index].classList.add("selected-seat");
+        updateNumOfSeats(allSeats[index]);
       }
     });
   }
-  console.log(movieData);
+  updateTotalPrice(movieData[0]);
+  updateMovieSelected(movieData[0]);
 };
 
 populateUi();
