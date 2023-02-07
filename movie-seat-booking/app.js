@@ -110,8 +110,12 @@ const populateUi = () => {
       }
     });
   }
-  updateTotalPrice(movieData[0]);
-  updateMovieSelected(movieData[0]);
+  if (movieData != null && movieData.length > 0 && movieData[0] != 0) {
+    updateTotalPrice(movieData[0]);
+    updateMovieSelected(movieData[0]);
+  } else {
+    clearAll();
+  }
 };
 
 populateUi();
