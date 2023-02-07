@@ -31,6 +31,10 @@ const updateTotalPrice = (movieTekitPrice) => {
 const getSelectedValue = () => {
   let valueSelected = selectField.value;
   let textSelected = selectField.options[selectField.selectedIndex].text;
+  localStorage.setItem(
+    "movieData",
+    JSON.stringify([valueSelected, textSelected])
+  );
   updateTotalPrice(valueSelected);
   return [valueSelected, textSelected];
 };
@@ -57,12 +61,19 @@ const clearAll = () => {
   }
 };
 
-const saveBookingData = () => {
-  const getAllSeat = document.querySelectorAll(".row .seat");
-  const getSelectedSeats = [...getAllSeat].map((seat) => {
-    return getAllSeat.indexOf(seat.classList.contains("selected-seat"));
+const updateSelectedSeats = () => {
+  const getAllSelectedSeat = document.querySelectorAll(
+    ".row .seat.selected-seat"
+  );
+  const selectedSeatsIndex = [...getAllSelectedSeat].map((seat) => {
+    return [...allSeats].indexOf(seat);
   });
-  console.log(getSelectedSeats);
+  localStorage.setItem(
+    "selectedSeatsIndex",
+    JSON.stringify(selectedSeatsIndex)
+  );
+  console.log(selectedSeatsIndex);
+  return selectedSeatsIndex;
 };
 
 const bookAseat = (seat) => {
@@ -71,6 +82,7 @@ const bookAseat = (seat) => {
   seat.classList.toggle("selected-seat");
   updateNumOfSeats(seat.classList.contains("selected-seat"));
   updateTotalPrice(isSelectedMovie()[0]);
+  updateSelectedSeats();
 };
 const addListenerToavailableSeats = () => {
   allSeats.forEach((seat) => {
@@ -80,9 +92,27 @@ const addListenerToavailableSeats = () => {
   });
 };
 
+const populateUi = () => {
+  const selectedSeatsIndex = JSON.parse(
+    localStorage.getItem("selectedSeatsIndex")
+  );
+
+  const movieData = JSON.parse(localStorage.getItem("movieData"));
+  if (selectedSeatsIndex != null && selectedSeatsIndex.length > 0) {
+    selectedSeatsIndex.forEach((index) => {
+      if (selectedSeatsIndex.indexOf(index) > -1) {
+        allSeats[index].classList.add("selected-seat");
+      }
+    });
+  }
+  console.log(movieData);
+};
+
+populateUi();
+
 selectField.addEventListener("change", getSelectedValue);
-cenimaBoardBox.addEventListener("click", (e) => {
-  console.log(e.target.classList);
-});
+
+// cenimaBoardBox.addEventListener("click", (e) => {
+//   console.log(e.target.classList);
+// });
 addListenerToavailableSeats();
-saveBookingData();
