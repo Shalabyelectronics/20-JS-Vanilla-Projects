@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/progress.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./app.js" defer></script>
+    <title>مقاطع من القرآن الكريم</title>
+  </head>
+  <body>
+    <h1>مقاطع من القرآن الكريم</h1>
+
+    <video
+      src="./videos/1.mp4"
+      id="video"
+      class="screen"
+      poster="./img/poster.png"
+    ></video>
+
+    <div class="controls">
+      <button class="btn play">
+        <i class="fa-solid fa-play fa-2x"></i>
+      </button>
+      <button class="btn stop">
+        <i class="fa-solid fa-stop fa-2x"></i>
+      </button>
+
+      <!-- <button class="btn pause">
+        <i class="fa-solid fa-pause fa-2x"></i>
+      </button>
+      <button class="btn backward">
+        <i class="fa-solid fa-backward-fast fa-2x"></i>
+      </button>
+      <button class="btn forward">
+        <i class="fa-solid fa-forward-fast fa-2x"></i>
+      </button> -->
+      <input
+        type="range"
+        id="progress"
+        class="progress"
+        min="0"
+        max="100"
+        step="0.1"
+        value="0"
+      />
+      <span class="timestamp" id="timestamp">00:00</span>
+    </div>
+  </body>
+</html>
