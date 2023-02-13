@@ -4,18 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./script/app.js" defer></script>
     <title>حاسبة تحويل العملات</title>
   </head>
   <body>
     <div class="container">
-      <img src="./img/money.png" alt="money sympol" />
-      <h2>حاسبة تحويل العملات</h2>
+      <img src="./img/money.png" alt="money sympol" class="money-logo" />
+      <h1>حاسبة تحويل العملات</h1>
       <p class="description">إختر العملة التي تريد حساب قيمتها</p>
       <div class="rating-section">
         <div class="currency">
-          <select id="from-currency" class="from-currency">
+          <select id="from-currency" class="currency-selector">
             <option value="AED">AED</option>
             <option value="ARS">ARS</option>
             <option value="AUD">AUD</option>
@@ -69,14 +76,14 @@
             <option value="VND">VND</option>
             <option value="ZAR">ZAR</option>
           </select>
-          <input type="number" id="from-amount" class="from-amount" />
+          <input type="number" id="from-amount" class="amount" />
         </div>
         <div class="swap-section">
-          <button class="swap-btn">عكس</button>
-          <p id="currecy-rate" class="currency-rate">1USD = 3.4 SAR</p>
+          <button class="swap-btn">تبديل</button>
+          <small id="currecy-rate" class="currency-rate">1USD = 3.4 SAR</small>
         </div>
         <div class="currency">
-          <select id="from-currency" class="from-currency">
+          <select id="to-currency" class="currency-selector">
             <option value="AED">AED</option>
             <option value="ARS">ARS</option>
             <option value="AUD">AUD</option>
@@ -130,7 +137,7 @@
             <option value="VND">VND</option>
             <option value="ZAR">ZAR</option>
           </select>
-          <input type="number" id="from-amount" class="from-amount" />
+          <input type="number" id="to-amount" class="amount" />
         </div>
       </div>
     </div>

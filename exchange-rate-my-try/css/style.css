@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #5fbaa7;
+}
+
+body {
+  display: flex;
+  background-color: #f4f4f4;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+
+h1 {
+  color: var(--primary-color);
+}
+.money-logo {
+  width: 35%;
+}
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 16px;
+  gap: 15px;
+}
+.description {
+  margin-bottom: 30px;
+}
+.rating-section {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  gap: 30px;
+}
+.currency,
+.swap-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input:focus {
+  outline: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input {
+  background-color: #f4f4f4;
+  direction: rtl;
+  width: 100%;
+  border: none;
+  height: 40px;
+  font-size: 30px;
+  padding: 5px;
+}
+.currency-selector {
+  font-size: inherit;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 10px;
+  padding-right: 18px;
+  outline: 0;
+  border: 2px solid #33333367;
+  background-image: url("../img/down-arrow.png");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 5px) center;
+  background-size: 15px;
+  background-color: #f4f4f4;
+}
+.swap-btn {
+  font-size: inherit;
+  padding: 10px 15px;
+  border: 0;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.swap-btn:hover {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+.swap-btn:active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 500px) {
+  .money-logo {
+    width: 30%;
+  }
+  .container {
+    font-size: 16px;
+    gap: 15px;
+  }
+  .rating-section {
+    width: 90%;
+    gap: 50px;
+  }
+}
+@media (max-width: 300px) {
+  .container {
+    font-size: 12px;
+    gap: 10px;
+  }
+  .rating-section {
+    width: 80%;
+    gap: 30px;
+  }
+  .currency-selector {
+    padding: 5px;
+    padding-right: 18px;
+    background-position: calc(100% - 3px) center;
+    background-size: 10px;
+  }
+  .swap-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}
