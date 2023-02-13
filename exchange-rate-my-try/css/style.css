@@ -22,12 +22,18 @@ body {
 
 h1 {
   color: var(--primary-color);
+  margin-top: 150px;
 }
+.image-container {
+  position: relative;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+}
+
 .money-logo {
   display: block;
-  position: fixed;
-  top: 20%;
-  left: 42%;
+  position: absolute;
   width: 150px;
   height: 150px;
   -webkit-animation: spin 1s linear infinite;
@@ -58,6 +64,7 @@ h1 {
 }
 .container {
   display: flex;
+  position: relative;
   align-items: center;
   flex-direction: column;
   font-size: 16px;
@@ -139,9 +146,9 @@ input {
 }
 
 @media (max-width: 500px) {
-  .money-logo {
+  /* .money-logo {
     width: 30%;
-  }
+  } */
   .container {
     font-size: 16px;
     gap: 15px;
