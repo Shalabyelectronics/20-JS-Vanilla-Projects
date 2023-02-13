@@ -98,12 +98,13 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type="number"] {
+/* input[type="number"] {
   -moz-appearance: textfield;
-}
+} */
 input {
   background-color: #f4f4f4;
-  direction: rtl;
+  /* direction: rtl; or */
+  text-align: right;
   width: 100%;
   border: none;
   height: 40px;
