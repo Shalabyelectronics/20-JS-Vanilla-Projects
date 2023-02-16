@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Noto Sans Display", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  color: #20262e;
+  background-color: #fffbeb;
+}
+
+h1 {
+  font-weight: 700;
+  margin-bottom: 5rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+.side-bar-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-right: 0.4rem solid #20262e;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+}
+
+.users-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header-info,
+.row,
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-info {
+  font-size: 2.5rem;
+  font-weight: 600;
+  border-bottom: 0.4rem solid #666;
+  padding: 0 1rem 2rem 1rem;
+}
+.data-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.row {
+  font-size: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #666;
+}
+
+.total {
+  opacity: 0;
+  font-size: 2rem;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem;
+  transition: all 2s;
+}
+.visiable {
+  opacity: 1;
+}
+.btn {
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  border: 0.4rem solid #666;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.322);
+}
+
+.btn:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.322);
+}
+.btn:active {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.322);
+}
+
+@media (max-width: 58.5em) {
+  html {
+    font-size: 58%;
+  }
+}
+@media (max-width: 55em) {
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width: 53em) {
+  html {
+    font-size: 52%;
+  }
+}
+@media (max-width: 50em) {
+  html {
+    font-size: 49%;
+  }
+}
+@media (max-width: 46em) {
+  html {
+    font-size: 46%;
+  }
+}
+@media (max-width: 43em) {
+  html {
+    font-size: 43%;
+  }
+  .dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .side-bar-features {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 2rem;
+    border: none;
+    padding: 0;
+    grid-row: 2;
+    border-top: 0.4rem solid #20262e;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+  .btn {
+    width: 100%;
+  }
+}
