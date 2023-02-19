@@ -11,6 +11,7 @@ html {
 body {
   font-family: "Noto Sans Display", sans-serif;
   display: flex;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -19,6 +20,28 @@ body {
   background-color: #fffbeb;
 }
 
+.something-wrong-box {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.178);
+}
+.something-wrong-box::before {
+  content: "😭 Sorry Something Went Wrong!!!";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, 50%);
+  border-radius: 5px;
+  font-size: 2rem;
+  background-color: #fff;
+  padding: 5rem;
+}
+.show-error {
+  display: block;
+}
 h1 {
   font-weight: 700;
   margin-bottom: 5rem;
@@ -42,6 +65,7 @@ h1 {
 
 .users-info {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 2rem;
 }
@@ -80,6 +104,40 @@ h1 {
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
+.default-waiting-data-text {
+  display: none;
+}
+.start-waiting-data-text {
+  /* -webkit-animation: scale 1s linear infinite;
+  -moz-animation: scale 1s linear infinite;
+  animation: scale 1s linear infinite; */
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 0;
+  text-align: center;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(1000, start) infinite;
+}
+
+.stop-waiting-data-text {
+  display: none !important;
+}
+
+@keyframes scale {
+  100% {
+    -webkit-transform: scaleY(1);
+  }
+}
+
+@keyframes blink-animation {
+  to {
+    font-size: 2rem;
+  }
+}
+
 .remove-elment {
   display: none;
 }

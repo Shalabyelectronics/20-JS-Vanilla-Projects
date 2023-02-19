@@ -11,10 +11,14 @@ class WealthUsersApp {
     this.totalNodeEl = this.mainUserList.nextElementSibling;
     this.totalAmountEl = this.totalNodeEl.lastElementChild;
     this.addUserWarinig = document.getElementById("add-user");
+    this.waithingData = document.getElementById("waiting-data");
+    this.someThingWrong = document.getElementById("something-wrong-box");
   }
   users = [];
 
-  get allUsers() {}
+  get allUsers() {
+    return this.users;
+  }
 
   set userToUI(user) {
     // console.log(user);
@@ -25,6 +29,19 @@ class WealthUsersApp {
     <p>\$ ${user.wealth}</p>
     `;
     this.mainUserList.append(rootElement);
+  }
+
+  startWaitingDataText() {
+    this.waithingData.classList.remove("stop-waiting-data-text");
+    this.waithingData.classList.add("start-waiting-data-text");
+  }
+  stoptWaitingDataText() {
+    this.waithingData.classList.remove("start-waiting-data-text");
+    this.waithingData.classList.add("stop-waiting-data-text");
+  }
+
+  showSomeThingWrong() {
+    this.someThingWrong.classList.add("show-error");
   }
   addUserToList(randomUser) {
     this.users.push(randomUser);
@@ -51,7 +68,7 @@ class WealthUsersApp {
       }
     });
   }
-  // Next Show All users
+
   sortByReachest() {
     this.removeTotalEl();
     this.clearUsersList();
@@ -70,11 +87,6 @@ class WealthUsersApp {
       user.wealth = user.wealth * 2;
       this.userToUI = user;
     });
-    // Also we can use for Of
-    // for (const user of this.users) {
-    //   user.wealth = user.wealth * 2;
-    //   this.userToUI = user;
-    // }
   }
   removeTotalEl() {
     this.totalNodeEl.classList.remove("visiable");
@@ -88,27 +100,26 @@ class WealthUsersApp {
       return total + user.wealth;
     }, 0);
 
-    // console.log(totalWealth, typeof totalWealth);
     this.showAndUpdateTotal(totalWealth);
-    // this.users.forEach((user) => {
-    //   console.log(user.wealth, typeof user.wealth);
-    // });
   }
   getRandomUserData() {
     this.removeUserWarning();
     this.removeTotalEl();
+    this.startWaitingDataText();
     fetch(this.url)
       .then((res) => res.json())
       .then((data) => {
+        this.stoptWaitingDataText();
         data.results[0].name.wealth = this.getRandomWealth(1000);
         this.addUserToList(data.results[0].name);
       })
-      .catch((err) => console.error("Oops the API not Working", err));
+      .catch((err) => {
+        this.showSomeThingWrong();
+        console.error("Some Thing Went Wrong!!!", err);
+      });
   }
 }
 
-// const addUser = new AddUser("https://randomuser.me/api");
-// addUser.getRandomUserData();
 const wealthUserApp = new WealthUsersApp("https://randomuser.me/api");
 
 addUserBtn.addEventListener("click", () => {
