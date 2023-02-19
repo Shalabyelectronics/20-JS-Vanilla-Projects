@@ -72,6 +72,17 @@ h1 {
   border-bottom: 0.1rem solid #666;
 }
 
+.add-user {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  border: 1px solid rgba(255, 0, 0, 0.349);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.remove-elment {
+  display: none;
+}
 .total {
   opacity: 0;
   font-size: 2rem;
@@ -139,7 +150,6 @@ h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* align-items: center; */
     justify-content: center;
     gap: 2rem;
     border: none;
