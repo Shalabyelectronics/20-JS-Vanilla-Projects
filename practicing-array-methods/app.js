@@ -4,109 +4,7 @@ const showMillionirsBtn = document.getElementById("show-millionirs-btn");
 const sortReachestBtn = document.getElementById("sort-reachest-btn");
 const calculateWealthBtn = document.getElementById("calculate-wealth-btn");
 
-class attrubutes {
-  constructor(name, value) {
-    this.attrName = name;
-    this.attrValue = value;
-  }
-}
-
-class Component {
-  constructor(hookId) {
-    this.hookId = hookId;
-  }
-  creatRootElement(tag, cssClass, attrubutes) {
-    const rootElement = document.createElement(tag);
-
-    if (cssClass) {
-      rootElement.className = cssClass;
-    }
-    if (attrubutes && attrubutes.length > 0) {
-      for (attr of attrubutes) {
-        console.log(attr.name);
-        console.log(attr.value);
-      }
-    }
-    document.getElementById(this.hookId).append(rootElement);
-    return rootElement;
-  }
-}
-
-class AddUserCopy {
-  constructor() {
-    this.users = [];
-  }
-
-  userObject(firstName, lastName, wealth) {
-    const user = {
-      firstName,
-      lastName,
-      wealth,
-    };
-    this.users.push(user);
-  }
-  set addUserUi(userInfo) {
-    const createUserEl = new Component("user-data-list").creatRootElement(
-      "li",
-      "row"
-    );
-    createUserEl.innerHTML = `
-    <p>${userInfo.firstName} ${userInfo.lastName}</p>
-    <p>\$ ${userInfo.wealth}</p>
-    `;
-  }
-  updateUsers() {}
-
-  addRandomUserUi() {
-    console.log("starting fetching data");
-    fetch(`https://randomuser.me/api`)
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (data) {
-        const firstName = data.results[0].name.first;
-        const lastName = data.results[0].name.last;
-        const wealth = Math.round(Math.random() * 1000 * 1000);
-        const createUserEl = new Component("user-data-list").creatRootElement(
-          "li",
-          "row"
-        );
-        createUserEl.innerHTML = `
-        <p>${firstName} ${lastName}</p>
-        <p>\$ ${wealth}</p>
-        `;
-      });
-  }
-}
-
-class AppCopy {
-  static init() {
-    console.log("starting App init Method");
-    this.addUserObj = new AddUser();
-    console.log(this.addUserObj.addRandomUserUi());
-    // addUserBtn.addEventListener("click", this.addUserObj.addRandomUserUi);
-  }
-}
-
-// App.init();
-function addRandomUserUi() {
-  console.log("starting fetching data");
-  const promis = new Promise((resolve, reject) => {
-    fetch(`https://randomuser.me/api`)
-      .then((res) => res.json())
-      .then((data) => {
-        resolve(data);
-      })
-      .catch((e) => reject(e));
-  });
-  console.log(promis.resolve());
-}
-
-// addRandomUserUi();
-
-// Create Add user Class from scrtch without inhiratince from Componant
-
-class AddUser {
+class WealthUsersApp {
   constructor(url) {
     this.url = url;
     this.mainUserList = document.getElementById("user-data-list");
@@ -211,24 +109,24 @@ class AddUser {
 
 // const addUser = new AddUser("https://randomuser.me/api");
 // addUser.getRandomUserData();
-const addUser = new AddUser("https://randomuser.me/api");
+const wealthUserApp = new WealthUsersApp("https://randomuser.me/api");
 
 addUserBtn.addEventListener("click", () => {
-  addUser.getRandomUserData();
+  wealthUserApp.getRandomUserData();
 });
 
 doubleMoneyBtn.addEventListener("click", () => {
-  addUser.doubleRandomWealth();
+  wealthUserApp.doubleRandomWealth();
 });
 
 showMillionirsBtn.addEventListener("click", () => {
-  addUser.showMillionirsOnly();
+  wealthUserApp.showMillionirsOnly();
 });
 
 sortReachestBtn.addEventListener("click", () => {
-  addUser.sortByReachest();
+  wealthUserApp.sortByReachest();
 });
 
 calculateWealthBtn.addEventListener("click", () => {
-  addUser.calculateWealth();
+  wealthUserApp.calculateWealth();
 });
